@@ -4,5 +4,16 @@
     "express": "^5.1.0",
     "mongoose": "^8.14.2",
     "morgan": "^1.10.0"
-  }
+  },
+  "name": "funlearn",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "thanh",
+  "license": "ISC",
+  "description": ""
 }
