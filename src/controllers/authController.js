@@ -3,16 +3,17 @@ const catchAsync = require("../common/catchAsync");
 
 // Xử lý đăng ký user
 exports.signUp = catchAsync(async (req, res) => {
-  const { email, password } = req.body;
+  const { name, email, password } = req.body;
   const isExisted = await User.findOne({ email });
   if (isExisted) throw new Error("User is existed !");
   const newUser = await User.create({
+    name,
     email,
     password,
   });
   res.status(201).json({
     status: "success",
-    data: newUser,
+    newUser,
   });
 });
 
@@ -27,5 +28,6 @@ exports.signIn = catchAsync(async (req, res) => {
     throw new Error("Email or password is incorrect !");
   res.status(200).json({
     status: "success",
+    user,
   });
 });

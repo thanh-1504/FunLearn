@@ -12,6 +12,6 @@ router
 
 router
   .route("/:idUser")
-  .post(userController.updateUser)
+  .patch(userController.updateUser)
   .delete(userController.deleteUser);
 module.exports = router;
