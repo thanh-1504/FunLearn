@@ -12,11 +12,12 @@ exports.getAllCourses = catchAsync(async (req, res) => {
 
 // Tạo 1 khóa học
 exports.createCourse = catchAsync(async (req, res) => {
-  const { name, description, url } = req.body;
+  const { name, description, urlImageCourse, courseDetail } = req.body;
   const newCourse = await Course.create({
     name,
     description,
-    url,
+    urlImageCourse,
+    courseDetail,
   });
   res.status(201).json({
     status: "success",

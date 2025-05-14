@@ -5,10 +5,22 @@ const courseSchema = new mongoose.Schema({
     type: String,
     default: "",
   },
-  url: {
+  urlImageCourse: {
     type: String,
     default: "",
   },
+  courseDetail: [
+    {
+      name: {
+        type: String,
+        default: "",
+      },
+      urlCourse: {
+        type: String,
+        default: "",
+      },
+    },
+  ],
 });
 const Course = mongoose.model("Course", courseSchema);
 module.exports = Course;
