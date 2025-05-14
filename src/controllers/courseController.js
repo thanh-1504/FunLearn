@@ -6,17 +6,27 @@ exports.getAllCourses = catchAsync(async (req, res) => {
   const courses = await Course.find();
   res.status(200).json({
     status: "success",
-    data: courses,
+    courses,
+  });
+});
+
+exports.findCourseById = catchAsync(async (req, res) => {
+  const course = await Course.findById(req.params.idCourse);
+  res.status(200).json({
+    status: "success",
+    course,
   });
 });
 
 // Tạo 1 khóa học
 exports.createCourse = catchAsync(async (req, res) => {
-  const { name, description, urlImageCourse, courseDetail } = req.body;
+  const { name, description, urlImageCourse, courseDetail, isComing } =
+    req.body;
   const newCourse = await Course.create({
     name,
     description,
     urlImageCourse,
+    isComing,
     courseDetail,
   });
   res.status(201).json({

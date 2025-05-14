@@ -10,6 +10,10 @@ const courseSchema = new mongoose.Schema({
     type: String,
     default: "",
   },
+  isComing: {
+    type: Boolean,
+    default: false,
+  },
   courseDetail: [
     {
       name: {

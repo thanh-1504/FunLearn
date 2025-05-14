@@ -41,7 +41,7 @@ exports.updateUser = catchAsync(async (req, res) => {
   );
   res.status(200).json({
     status: "success",
-    data: userUpdated,
+    userUpdated,
   });
 });
 

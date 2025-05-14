@@ -9,7 +9,8 @@ router
 
 router
   .route("/:idCourse")
-  .post(courseController.updateCourse)
+  .get(courseController.findCourseById)
+  .patch(courseController.updateCourse)
   .delete(courseController.deleteCourse);
 
 module.exports = router;
