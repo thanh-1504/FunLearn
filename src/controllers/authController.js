@@ -31,3 +31,13 @@ exports.signIn = catchAsync(async (req, res) => {
     user,
   });
 });
+
+// Phân quyền user
+exports.authorization = (roles) => {
+  return (req, res, next) => {
+    const roleUser = req.body?.role?.toUpperCase() ?? "User";
+    if (!roles.includes(roleUser))
+      throw new Error("You don't have permission to perform this action");
+    next();
+  };
+};
