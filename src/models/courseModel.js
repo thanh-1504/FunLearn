@@ -1,9 +1,13 @@
 const mongoose = require("mongoose");
+const validator = require("validator");
+
 const courseSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: [true, "Course must have a name"],
+    trim: true,
     unique: true,
+    required: [true, "Course must have a name"],
+    minlength: [3, "Course name must be at least 3 characters"],
   },
   chude: String,
   description: {
@@ -12,7 +16,9 @@ const courseSchema = new mongoose.Schema({
   },
   urlImageCourse: {
     type: String,
+    trim: true,
     default: "",
+    validate: [validator.isURL, "Url image is not valid"],
   },
   isComing: {
     type: Boolean,
@@ -22,11 +28,14 @@ const courseSchema = new mongoose.Schema({
     {
       name: {
         type: String,
-        default: "",
+        trim: true,
+        required: [true, "Course detail name is required"],
       },
       urlCourse: {
         type: String,
-        default: "",
+        trim: true,
+        required: [true, "Course detail URL is required"],
+        validate: [validator.isURL, "Course detail URL is not valid"],
       },
     },
   ],
