@@ -5,7 +5,7 @@ const router = express.Router();
 router.post("/sign-up", authController.signUp);
 router.post("/sign-in", authController.signIn);
 
-router.use(authController.authorization(["ADMIN"]));
+// router.use(authController.authorization(["ADMIN"]));
 router
   .route("/")
   .get(userController.getAllUsers)
